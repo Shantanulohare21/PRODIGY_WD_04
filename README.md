@@ -1,73 +1,187 @@
-# Welcome to your Lovable project
+#  Shantanu Lohare – MERN Stack Portfolio
 
-## Project info
+A modern, interactive, and recruiter-focused **personal portfolio website** built using the **MERN stack (MongoDB, Express.js, React.js, Node.js)**. This portfolio highlights my skills, projects, and experience with clean architecture and real-world development practices.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## 👤 About Me
 
-There are several ways of editing your application.
+I’m **Shantanu Lohare**, a **Web Developer** and **3rd-year B.Tech (Artificial Intelligence)** student at **G. H. Raisoni College of Engineering and Management, Nagpur**, graduating in **2027**.
 
-**Use Lovable**
+I enjoy building scalable, user-friendly web applications and working on impactful projects. My interests include full-stack development, AI-driven solutions, and solving real-world problems through technology.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠 Tech Stack
 
-**Use your preferred IDE**
+### Frontend
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+* React.js
+* Tailwind CSS
+* HTML5, CSS3, JavaScript (ES6+)
+* Framer Motion (animations)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Backend
 
-Follow these steps:
+* Node.js
+* Express.js
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Database
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+* MongoDB
+* SQL
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Tools & DevOps
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+* Git & GitHub
+* REST APIs
+* Docker
+* Kubernetes (basic)
+* CI/CD
+
+---
+
+## ✨ Features
+
+* Fully responsive, mobile-first design
+* Modern dark theme with subtle gradients
+* Smooth animations and transitions
+* Modular React components
+* Clean Express API structure
+* Functional contact form with backend integration
+* Recruiter-friendly UI/UX
+
+---
+
+## 📂 Project Structure
+
+```
+mern-portfolio/
+│
+├── client/                 # React Frontend
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── assets/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   └── package.json
+│
+├── server/                 # Node + Express Backend
+│   ├── routes/
+│   ├── controllers/
+│   ├── models/
+│   ├── server.js
+│   └── package.json
+│
+├── .env.example
+├── README.md
+└── package.json
+```
+
+---
+
+## 🚀 Projects
+
+### 1️⃣ GuideIndia – Multi-Choice Ticket Booking System
+
+**Duration:** Aug 2024 – Nov 2024
+
+A unified ticket booking platform offering multiple booking options through a single interface, focusing on usability and scalability.
+
+**Tech Stack:** MERN
+
+---
+
+### 2️⃣ Krishi-AI – AI-Based Crop Recommendation & Disease Detection (SIH)
+
+**Duration:** Aug 2024 – Present
+
+An AI-powered, farmer-friendly application initiated during the **Smart India Hackathon (SIH)**.
+
+**Key Features:**
+
+* AI-driven crop recommendations
+* Leaf image-based disease detection
+* Simple, intuitive UI for farmers
+* Designed for scalability and real-world use
+
+The project is actively being enhanced beyond the hackathon.
+
+---
+
+## 🏆 Experience & Achievements
+
+* **Smart India Hackathon (SIH) Participant**
+* Experience in teamwork, problem-solving, and full-stack development
+* Focus on social-impact-driven solutions
+
+---
+
+## ⚙️ Local Setup
+
+### Clone the Repository
+
+```
+git clone https://github.com/Shantanulohare21/mern-portfolio.git
+cd mern-portfolio
+```
+
+### Frontend Setup
+
+```
+cd client
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Backend Setup
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+cd server
+npm install
+npm start
+```
 
-**Use GitHub Codespaces**
+### Environment Variables
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Create a `.env` file inside the `server` folder:
 
-## What technologies are used for this project?
+```
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+EMAIL_USER=your_email
+EMAIL_PASS=your_email_password
+```
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🌐 Deployment
 
-## How can I deploy this project?
+### Frontend (Vercel)
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+1. Push repository to GitHub
+2. Import project in **Vercel**
+3. Set root directory to `client`
+4. Build command: `npm run build`
+5. Output directory: `dist`
 
-## Can I connect a custom domain to my Lovable project?
+### Backend (Render)
 
-Yes, you can!
+1. Create a new Web Service on **Render**
+2. Connect GitHub repository
+3. Set root directory to `server`
+4. Start command: `node server.js`
+5. Add environment variables in Render dashboard
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 📬 Contact
+
+* **Email:** [shantanulohare021@gmail.com](mailto:shantanulohare021@gmail.com)
+* **GitHub:** [https://github.com/Shantanulohare21](https://github.com/Shantanulohare21)
+* **LinkedIn:** [https://www.linkedin.com/in/shantanulohare21/](https://www.linkedin.com/in/shantanulohare21/)
+* **Location:** Nagpur, Maharashtra, India
+
+---
+THANK YOU!!
