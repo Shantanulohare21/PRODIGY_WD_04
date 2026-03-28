@@ -107,8 +107,8 @@ const Header = () => {
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#11161d]/80 backdrop-blur-md py-4 border-b border-white/5' : 'bg-transparent py-6 md:py-8'}`}>
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center relative z-20">
-        <div className="text-2xl font-bold text-white tracking-tighter">
-          <span className="text-teal-500">S</span>L<span className="text-teal-500">.</span>
+        <div className="text-2xl font-bold text-white tracking-tighter invisible pointer-events-none md:visible md:pointer-events-auto">
+          {/* Logo removed per request, keeping space-holder for alignment if needed, or just let nav float */}
         </div>
         <nav className="hidden md:flex space-x-10 text-sm font-semibold text-slate-300">
           <a href="#home" className="text-white border-b-2 border-teal-500 pb-1">Home</a>
@@ -127,8 +127,8 @@ const Header = () => {
           </a>
         </div>
         
-        {/* Mobile Menu Button */}
-        <button className="md:hidden text-slate-300 hover:text-white" onClick={() => setIsOpen(!isOpen)}>
+        {/* Mobile Menu Button - Left aligned on mobile if no logo */}
+        <button className="md:hidden text-slate-300 hover:text-white absolute right-6 top-1/2 -translate-y-1/2" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
@@ -191,13 +191,13 @@ const Hero = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       id="home" 
-      className="relative min-h-[90vh] md:min-h-screen bg-cover bg-center bg-no-repeat flex items-center pt-24 overflow-hidden border-b border-white/5"
+      className="relative min-h-[85vh] md:min-h-screen bg-cover bg-[position:80%_center] md:bg-center bg-no-repeat flex items-center pt-24 overflow-hidden border-b border-white/5"
       style={{ backgroundImage: "url('/shantanu-hero-bg.png')" }}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-[#1a2128]/95 via-[#1a2128]/70 to-transparent z-0"></div>
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full flex items-center relative z-10">
         <div className="w-full md:w-[60%] lg:w-[55%] pt-10 pb-16 text-left">
-          <h1 className="text-5xl md:text-[5.5rem] font-bold text-white mb-6 leading-[1.1] tracking-tight">
+          <h1 className="text-4xl md:text-[5.5rem] font-bold text-white mb-6 leading-[1.1] tracking-tight">
             Hello, I'm <br /> Shantanu Lohare
           </h1>
           <div className="inline-flex items-center px-5 py-2 bg-teal-600 rounded text-teal-50 font-medium mb-8 tracking-wide text-lg md:text-xl min-h-[48px]">
@@ -309,7 +309,7 @@ const ProjectModal = ({ project, onClose }: { project: any, onClose: () => void 
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.9, y: 20 }}
-        className="relative bg-white rounded-2xl overflow-hidden max-w-4xl w-full shadow-2xl flex flex-col md:flex-row"
+        className="relative bg-white rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col md:flex-row"
       >
         <button 
           onClick={onClose}
