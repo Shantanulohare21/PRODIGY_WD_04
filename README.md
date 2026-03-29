@@ -1,187 +1,108 @@
-#  Shantanu Lohare – MERN Stack Portfolio
+# 🚀 Shantanu Lohare – Full Stack MERN & AI Developer Portfolio
 
-A modern, interactive, and recruiter-focused **personal portfolio website** built using the **MERN stack (MongoDB, Express.js, React.js, Node.js)**. This portfolio highlights my skills, projects, and experience with clean architecture and real-world development practices.
+A premium, interactive, and recruiter-optimized portfolio built with **React**, **Tailwind CSS**, and **Framer Motion**. This project showcases high-end UI/UX, modular architecture, and an integrated **AI Assistant** to provide an exceptional experience for recruiters and collaborators.
 
 ---
 
 ## 👤 About Me
 
-I’m **Shantanu Lohare**, a **Web Developer** and **3rd-year B.Tech (Artificial Intelligence)** student at **G. H. Raisoni College of Engineering and Management, Nagpur**, graduating in **2027**.
+I’m **Shantanu Lohare**, a passionate **MERN Stack Developer** and **3rd-year B.Tech (Artificial Intelligence)** student at **G. H. Raisoni College of Engineering and Management, Nagpur**.
 
-I enjoy building scalable, user-friendly web applications and working on impactful projects. My interests include full-stack development, AI-driven solutions, and solving real-world problems through technology.
+I specialize in building scalable web applications and AI-driven solutions. My mission is to bridge the gap between intelligent algorithms and user-centric web interfaces.
+
+---
+
+## ✨ Key Features
+
+- 🤖 **Integrated AI Assistant**: A custom-built AI chatbot in the Hero section to answer queries about my skills, projects, and contact info.
+- 📱 **Fully Responsive Design**: Optimized for all devices, including a dedicated fix for Hero section backgrounds on mobile.
+- 🎨 **Premium Aesthetics**: Smooth animations with Framer Motion, custom turquoise cursor, and a sleek dark-themed professional UI.
+- 🧩 **Modular Architecture**: Clean, component-based structure for high maintainability and scalability.
+- 📬 **Interactive Contact**: Professional contact form with integrated mailto functionality.
+- 🛠️ **MERN Stack Expertise**: Deep integration of MongoDB, Express, React, and Node.js documented through featured projects.
 
 ---
 
 ## 🛠 Tech Stack
 
 ### Frontend
+- **Framework**: React.js 18+
+- **Styling**: Tailwind CSS (Utility-first CSS)
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
 
-* React.js
-* Tailwind CSS
-* HTML5, CSS3, JavaScript (ES6+)
-* Framer Motion (animations)
+### Backend & AI (Project Integrated)
+- **Node.js & Express**: Robust API development.
+- **Python & TensorFlow**: Core for AI/ML projects like Krishi-AI.
+- **FastAPI**: High-performance backend for AI integrations.
 
-### Backend
-
-* Node.js
-* Express.js
-
-### Database
-
-* MongoDB
-* SQL
-
-### Tools & DevOps
-
-* Git & GitHub
-* REST APIs
-* Docker
-* Kubernetes (basic)
-* CI/CD
-
----
-
-## ✨ Features
-
-* Fully responsive, mobile-first design
-* Modern dark theme with subtle gradients
-* Smooth animations and transitions
-* Modular React components
-* Clean Express API structure
-* Functional contact form with backend integration
-* Recruiter-friendly UI/UX
+### Tools & Databases
+- **Databases**: MongoDB, MySQL, PostgreSQL.
+- **DevOps/Tools**: Git, GitHub, Docker, Postman, Vercel.
 
 ---
 
 ## 📂 Project Structure
 
-```
-mern-portfolio/
-│
-├── client/                 # React Frontend
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── assets/
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   └── package.json
-│
-├── server/                 # Node + Express Backend
-│   ├── routes/
-│   ├── controllers/
-│   ├── models/
-│   ├── server.js
-│   └── package.json
-│
-├── .env.example
-├── README.md
-└── package.json
+```text
+PRODIGY_WD_04/
+├── public/                 # Static assets (images, resume)
+├── src/
+│   ├── components/         # Modular React components
+│   │   ├── AIAssistant.tsx # Smart AI Chat Component
+│   │   ├── Hero.tsx        # Mobile-optimized Hero section
+│   │   ├── Portfolio.tsx   # Project showcase with Modals
+│   │   ├── ...             # Header, Skills, Contact, etc.
+│   ├── lib/                # Utility functions
+│   ├── App.tsx             # Main Application Root
+│   ├── index.css           # Global styles & Tailwind
+│   └── main.tsx            # Entry point
+├── package.json            # Dependencies & Scripts
+└── README.md               # Professional Documentation
 ```
 
 ---
 
-## 🚀 Projects
+## 🚀 Featured Projects
 
-### 1️⃣ GuideIndia – Multi-Choice Ticket Booking System
+### 1️⃣ GuideIndia – Ticket Booking Ecosystem
+- **Tech**: MERN Stack, Redux, Stripe API.
+- **Description**: A comprehensive ticket booking platform for historical sites across India.
+- **GitHub**: [View Repository](https://github.com/Shantanulohare21/GuideIndia)
 
-**Duration:** Aug 2024 – Nov 2024
-
-A unified ticket booking platform offering multiple booking options through a single interface, focusing on usability and scalability.
-
-**Tech Stack:** MERN
-
----
-
-### 2️⃣ Krishi-AI – AI-Based Crop Recommendation & Disease Detection (SIH)
-
-**Duration:** Aug 2024 – Present
-
-An AI-powered, farmer-friendly application initiated during the **Smart India Hackathon (SIH)**.
-
-**Key Features:**
-
-* AI-driven crop recommendations
-* Leaf image-based disease detection
-* Simple, intuitive UI for farmers
-* Designed for scalability and real-world use
-
-The project is actively being enhanced beyond the hackathon.
-
----
-
-## 🏆 Experience & Achievements
-
-* **Smart India Hackathon (SIH) Participant**
-* Experience in teamwork, problem-solving, and full-stack development
-* Focus on social-impact-driven solutions
+### 2️⃣ Krishi-AI – Agricultural Intelligence
+- **Tech**: Python, TensorFlow, React, FastAPI.
+- **Description**: AI-powered platform for crop yield prediction and plant disease detection.
+- **GitHub**: [View Repository](https://github.com/Shantanulohare21/Krishi-AI)
 
 ---
 
 ## ⚙️ Local Setup
 
-### Clone the Repository
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/Shantanulohare21/mern-portfolio.git
+   cd PRODIGY_WD_04
+   ```
 
-```
-git clone https://github.com/Shantanulohare21/mern-portfolio.git
-cd mern-portfolio
-```
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-### Frontend Setup
-
-```
-cd client
-npm install
-npm run dev
-```
-
-### Backend Setup
-
-```
-cd server
-npm install
-npm start
-```
-
-### Environment Variables
-
-Create a `.env` file inside the `server` folder:
-
-```
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-EMAIL_USER=your_email
-EMAIL_PASS=your_email_password
-```
+3. **Run Development Server**
+   ```bash
+   npm run dev
+   ```
 
 ---
 
-## 🌐 Deployment
+## 📬 Connect With Me
 
-### Frontend (Vercel)
-
-1. Push repository to GitHub
-2. Import project in **Vercel**
-3. Set root directory to `client`
-4. Build command: `npm run build`
-5. Output directory: `dist`
-
-### Backend (Render)
-
-1. Create a new Web Service on **Render**
-2. Connect GitHub repository
-3. Set root directory to `server`
-4. Start command: `node server.js`
-5. Add environment variables in Render dashboard
+- **LinkedIn**: [shantanulohare21](https://www.linkedin.com/in/shantanulohare21/)
+- **GitHub**: [Shantanulohare21](https://github.com/Shantanulohare21)
+- **Email**: [shantanulohare021@gmail.com](mailto:shantanulohare021@gmail.com)
+- **Location**: Nagpur, Maharashtra, India
 
 ---
-
-## 📬 Contact
-
-* **Email:** [shantanulohare021@gmail.com](mailto:shantanulohare021@gmail.com)
-* **GitHub:** [https://github.com/Shantanulohare21](https://github.com/Shantanulohare21)
-* **LinkedIn:** [https://www.linkedin.com/in/shantanulohare21/](https://www.linkedin.com/in/shantanulohare21/)
-* **Location:** Nagpur, Maharashtra, India
-
----
-THANK YOU!!
+Built with ❤️ by Shantanu Lohare

@@ -1,75 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 175 62% 31%; /* #1e8783 */
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 175 62% 31%;
-    --radius: 0.5rem;
+  body {
+    @apply bg-[#0f172a] text-slate-100 antialiased selection:bg-teal-500/30 font-['Inter',sans-serif];
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body, html {
-    @apply bg-background text-foreground scroll-smooth;
-  }
+.glass-card {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl transition-all duration-300;
 }
 
-.bg-dark-texture {
-  background-color: #1a2128;
+.bg-mesh {
+  @apply relative overflow-hidden;
+}
+
+.bg-mesh::after {
+  content: '';
+  @apply absolute inset-0 pointer-events-none;
   background-image: 
-    radial-gradient(circle at 15% 50%, rgba(255,255,255,0.02), transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(255,255,255,0.02), transparent 25%),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    radial-gradient(at 0% 0%, hsla(175, 62%, 31%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(190, 70%, 50%, 0.05) 0px, transparent 50%);
 }
 
-.bg-about-texture {
-  background-color: #161c22;
-  background-image: 
-    linear-gradient(to right, #1a2128, transparent),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+.reveal-text {
+  background: linear-gradient(to right, #fff 20%, #94a3b8 40%, #94a3b8 60%, #fff 80%);
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 5s linear infinite;
 }
 
-/* Custom Turquoise Scrollbar */
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+/* Section Overlay for High-Contrast Modern Look */
+.section-overlay {
+  @apply bg-[#0f172a] relative z-10;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #11161d;
+  @apply bg-[#0f172a];
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #14b8a6;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #0d9488;
+  @apply bg-teal-500/20 rounded-full border-[3px] border-[#0f172a] hover:bg-teal-500/40 transition-colors;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #14b8a6 #11161d;
+  scrollbar-color: #14b8a633 #0f172a;
 }
