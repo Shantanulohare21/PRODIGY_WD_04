@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, X, Send, Bot, User, Sparkles, ExternalLink } from 'lucide-react';
+import { X, Send, Bot, ExternalLink } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface AIAssistantProps {
   isOpen: boolean;
@@ -8,12 +9,16 @@ interface AIAssistantProps {
 }
 
 const AIAssistant = ({ isOpen, onClose }: AIAssistantProps) => {
-  const [messages, setMessages] = useState([
-    { role: 'bot', content: "Hi! I'm Shantanu's AI Assistant. Ask me anything about his MERN stack expertise, his projects like GuideIndia, or how he can help your team!", type: 'text' }
-  ]);
+  const { t } = useLanguage();
+  const [messages, setMessages] = useState<any[]>([]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Reset messages when language changes, with translated greeting
+  useEffect(() => {
+    setMessages([{ role: 'bot', content: t.ai.greeting, type: 'text' }]);
+  }, [t]);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -22,56 +27,52 @@ const AIAssistant = ({ isOpen, onClose }: AIAssistantProps) => {
   }, [messages, isTyping, isOpen]);
 
   const knowledgeBase: Record<string, any> = {
-    "mern": {
+    mern: {
       content: "Shantanu is proficient in the MERN stack (MongoDB, Express, React, Node.js). He has built complex applications like 'GuideIndia' using these technologies, focusing on scalable architecture and seamless UX.",
-      suggestion: { label: "View GuideIndia Case Study", link: "#portfolio" }
+      suggestion: { label: 'View GuideIndia Case Study', link: '#portfolio' },
     },
-    "projects": {
+    projects: {
       content: "His top projects include 'GuideIndia' (a ticket booking system) and 'Krishi-AI' (an agricultural advisory platform using Machine Learning). He loves solving real-world problems with code.",
-      suggestion: { label: "See all projects", link: "#portfolio" }
+      suggestion: { label: 'See all projects', link: '#portfolio' },
     },
-    "contact": {
-      content: "You can reach Shantanu at shantanulohare021@gmail.com or via the contact form below. He is currently looking for opportunities where he can contribute his AI and Full Stack skills.",
-      suggestion: { label: "Go to Contact", link: "#contact" }
+    contact: {
+      content: 'You can reach Shantanu at shantanulohare021@gmail.com or via the contact form below. He is currently looking for opportunities where he can contribute his AI and Full Stack skills.',
+      suggestion: { label: 'Go to Contact', link: '#contact' },
     },
-    "experience": {
-      content: "He is a B.Tech student in Artificial Intelligence with a strong foundation in Data Structures, Algorithms, and Modern Web Technologies.",
-      suggestion: { label: "Download Resume", link: "/Shantanu_Lohare_Resume.pdf" }
+    experience: {
+      content: 'He is a B.Tech student in Artificial Intelligence with a strong foundation in Data Structures, Algorithms, and Modern Web Technologies.',
+      suggestion: { label: 'Download Resume', link: '/Shantanu_Lohare_Resume.pdf' },
     },
-    "skills": {
-      content: "Key skills: JavaScript, TypeScript, React, Node.js, MongoDB, Python, TensorFlow, and REST API development.",
-      suggestion: { label: "View Skills Section", link: "#skills" }
+    skills: {
+      content: 'Key skills: JavaScript, TypeScript, React, Node.js, MongoDB, Python, TensorFlow, and REST API development.',
+      suggestion: { label: 'View Skills Section', link: '#skills' },
     },
-    "default": {
+    default: {
       content: "That's a great question! While I'm a simplified AI, I can tell you that Shantanu is highly dedicated to MERN stack development and AI research. Would you like to know about his projects or skills?",
-      suggestion: null
-    }
+      suggestion: null,
+    },
   };
 
   const handleSend = () => {
     if (!input.trim()) return;
-
     const userMessage = input.trim();
     setMessages(prev => [...prev, { role: 'user', content: userMessage, type: 'text' }]);
     setInput('');
     setIsTyping(true);
 
     setTimeout(() => {
+      const lower = userMessage.toLowerCase();
       let responseObj = knowledgeBase.default;
-      const lowerInput = userMessage.toLowerCase();
-      
-      if (lowerInput.includes('mern') || lowerInput.includes('stack')) responseObj = knowledgeBase.mern;
-      else if (lowerInput.includes('project')) responseObj = knowledgeBase.projects;
-      else if (lowerInput.includes('contact') || lowerInput.includes('email') || lowerInput.includes('reach')) responseObj = knowledgeBase.contact;
-      else if (lowerInput.includes('experience') || lowerInput.includes('education')) responseObj = knowledgeBase.experience;
-      else if (lowerInput.includes('skill') || lowerInput.includes('tech')) responseObj = knowledgeBase.skills;
+      if (lower.includes('mern') || lower.includes('stack')) responseObj = knowledgeBase.mern;
+      else if (lower.includes('project')) responseObj = knowledgeBase.projects;
+      else if (lower.includes('contact') || lower.includes('email') || lower.includes('reach')) responseObj = knowledgeBase.contact;
+      else if (lower.includes('experience') || lower.includes('education')) responseObj = knowledgeBase.experience;
+      else if (lower.includes('skill') || lower.includes('tech')) responseObj = knowledgeBase.skills;
 
       setMessages(prev => [...prev, { role: 'bot', content: responseObj.content, type: 'text' }]);
-      
       if (responseObj.suggestion) {
         setMessages(prev => [...prev, { role: 'bot', content: responseObj.suggestion, type: 'suggestion' }]);
       }
-      
       setIsTyping(false);
     }, 1000);
   };
@@ -80,7 +81,6 @@ const AIAssistant = ({ isOpen, onClose }: AIAssistantProps) => {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -89,7 +89,6 @@ const AIAssistant = ({ isOpen, onClose }: AIAssistantProps) => {
             className="fixed inset-0 bg-[#0f172a]/60 backdrop-blur-sm z-[100]"
           />
 
-          {/* Sidebar */}
           <motion.div
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
@@ -104,17 +103,16 @@ const AIAssistant = ({ isOpen, onClose }: AIAssistantProps) => {
                   <Bot className="w-7 h-7" />
                 </div>
                 <div>
-                  <h3 className="text-white font-black text-base uppercase tracking-tight">AI Assistant <span className="text-[10px] bg-teal-500/20 text-teal-400 px-2 py-0.5 rounded-md ml-1">v2.1</span></h3>
+                  <h3 className="text-white font-black text-base uppercase tracking-tight">
+                    {t.ai.title} <span className="text-[10px] bg-teal-500/20 text-teal-400 px-2 py-0.5 rounded-md ml-1">{t.ai.version}</span>
+                  </h3>
                   <div className="flex items-center gap-1.5">
                     <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]"></span>
-                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">System Ready</span>
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">{t.ai.status}</span>
                   </div>
                 </div>
               </div>
-              <button 
-                onClick={onClose}
-                className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all active:scale-90"
-              >
+              <button onClick={onClose} className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all active:scale-90">
                 <X className="w-6 h-6" />
               </button>
             </div>
@@ -124,9 +122,9 @@ const AIAssistant = ({ isOpen, onClose }: AIAssistantProps) => {
               {messages.map((msg: any, i) => (
                 <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   {msg.type === 'text' ? (
-                    <div className={`max-w-[85%] p-5 rounded-2xl text-[13px] leading-relaxed font-semibold shadow-xl uppercase tracking-tight ${
-                      msg.role === 'user' 
-                        ? 'bg-teal-600 text-white rounded-tr-none shadow-teal-500/20' 
+                    <div className={`max-w-[85%] p-5 rounded-2xl text-[13px] leading-relaxed font-semibold shadow-xl ${
+                      msg.role === 'user'
+                        ? 'bg-teal-600 text-white rounded-tr-none shadow-teal-500/20'
                         : 'bg-white/5 text-slate-100 border border-white/10 rounded-tl-none'
                     }`}>
                       {msg.content}
@@ -161,9 +159,9 @@ const AIAssistant = ({ isOpen, onClose }: AIAssistantProps) => {
                 <input
                   type="text"
                   value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                  placeholder="Ask about MERN, projects..."
+                  onChange={e => setInput(e.target.value)}
+                  onKeyPress={e => e.key === 'Enter' && handleSend()}
+                  placeholder={t.ai.placeholder}
                   className="w-full bg-[#111827] border border-white/5 rounded-2xl px-8 py-5 text-sm font-semibold text-white focus:outline-none focus:border-teal-500/50 transition-all pr-16 shadow-inner"
                 />
                 <button
